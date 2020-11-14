@@ -1,0 +1,31 @@
+\part{Computing with Matrices}
+\setcounter{section}{0}
+
+\section{Computational Effort}
+We use \textit{Asymptotic Computation Complexity} (O-bounds) to judge our algorithms. But note that in many cases this approach is imprecise because on today's computers, \textit{memory} bandwidth and latency is a key bottleneck. 
+
+\Lemma[Matrix Product] The matrix product of an $m \times n$ and $n \times k$ matrix has complexity $O(mnk)$
+\sep
+
+\textbf{Tricks to reduce complexity:}
+\begin{itemize}
+  \item Exploit associativity of operations
+  \item Exploit hidden summations
+\end{itemize}
+
+
+\section{Machine Arithmetic}
+Machine Numbers have a finite precision, hence any involved computation suffers from \textbf{Roundoff}. 
+
+\Def[Cancellation] Subtraction of almost equal numbers and accordingly an extreme \textit{amplification of relative errors}.
+
+\textbf{Tricks to avoid cancellation:}
+\begin{itemize}
+  \item Trigonometric Identities
+  \item Case Distinction
+  \item Taylor Approximations
+  \item Computing Diff. Quot. through Approx.
+\end{itemize}
+
+\Def[Stability] An Algorithm $F$ is \textbf{numerically stable} if for all $x\in X$ its result $F(x)$ (possibly affected by roundoff) is the exact result for 'slightly perturbed' data. 
+

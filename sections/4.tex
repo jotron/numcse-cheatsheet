@@ -1,0 +1,52 @@
+\columnbreak
+
+\part{Filtering Algorithms}
+\setcounter{section}{0}
+
+\section{Filters \& Convolution}
+
+\Def[Filter] A function $F: l^\infty(\Z) \rightarrow l^\infty(\Z)$ where $l^\infty(\Z)$ is the space of bounded infinite sequences
+$$
+l^\infty(\Z) = \left\{\left(x_{j}\right)_{j \in \Z}: \sup \left|x_{j}\right|<\infty\right\}
+$$
+
+\Def[LT-FIR] A Filter that is: \begin{itemize}
+	\item Linear
+	\item Time-Invariant: Shifting the input in time leads to the same output shifted in time.
+	\item Finite: $\exists M \forall j : x_j=0 \text{ if } \abs{j}>M \implies \exists N \forall j : y_j=0 \text{ if } \abs{j}>N$
+	\item Causal: The output does not start before the input.
+\end{itemize}
+Such a filter is uniquely characterized by its \textbf{Impulse response}: $$F(\delta_{j, 0}) = \dots, 0, h_0, h_1, \dots, h_{n-1}, 0, \dots$$
+For inputs $\vx \in \R^m$ we get outputs $\vy \in \R^{m+n-1}$
+$$
+\left[\begin{array}{l}
+y_{0} \\
+y_{1} \\
+y_{2} \\
+y_{3} \\
+y_{4} \\
+y_{5} \\
+y_{6} \\
+\end{array}\right]=\left[\begin{array}{cccc}
+h_{0} & 0 & 0 & 0 \\
+h_{1} & h_{0} & 0 & 0 \\
+h_{2} & h_{1} & h_{0} & 0 \\
+h_{3} & h_{2} & h_{1} & h_{0} \\
+0 & h_{3} & h_{2} & h_{1} \\
+0 & 0 & h_{3} & h_{2} \\
+0 & 0 & 0 & h_{3} \\
+\end{array}\right]\left[\begin{array}{l}
+x_{0} \\
+x_{1} \\
+x_{2} \\
+x_{4}
+\end{array}\right]
+$$
+
+\section{Discrete Fourier Transform}
+
+- Recall Diagonalization of Matrix (Eigenwertzerlegung?)
+
+- All circulant matrices have the same eigenvectors -> given by fourrier-matrix.
+
+\section{Fast Fourier Transform}

@@ -1,0 +1,56 @@
+\part{Linear Systems}
+\setcounter{section}{0}
+
+\section{Theory}
+\Def The Condition Number of a matrix is $$\operatorname{cond}(\mathbf{A}):=\norm{\MA}\norm{\MA^{-1}}$$ and is a measure for stability ($\approx 1$ for stability).
+Note that it is infinite for singular matrices.
+Intuitively $cond(A)$ catches the maximum stretching factor divided by the minimum stretching factor.
+\Lemma If $m=n$ and $\mathbf{A}$ is regular/invertible, then its 2-norm condition number is  $\operatorname{cond}_{2}(\mathbf{A})=\sigma_{1} / \sigma_{n}$
+\sep
+
+\section{LU Decomposition}
+
+There are two methods to choose pivots in the elimination process with a Permutation Matrix:
+\begin{itemize}
+	\item Partial Pivoting: Max of column
+	\item Full Pivoting: Max of remaining matrix
+\end{itemize}
+\sep
+
+\textbf{Complexities:}
+\begin{itemize}
+	\item Gauss elim. $\BigO(n^3)$, back substitution $\BigO(n^2)$
+  	\item LU: decomp. $\BigO(n^3)$, solve $\BigO(n^2)$
+  	\item Inverse: compute $\BigO(n^3)$, solve $\BigO(n^2)$ 
+\end{itemize}
+
+\section{Exploiting Structure when Solving Linear Systems}
+
+\Method[Low Rank Modification] Use the \textit{Sherman-Morrison-Woodbury}
+Formula to compute the inverse of slightly modified (rank-1-modification) matrix.
+$$
+{\scriptstyle \left(\mathbf{A}+\mathbf{U V}^{H}\right)^{-1}=\mathbf{A}^{-1}-\mathbf{A}^{-1} \mathbf{U}\left(\mathbf{I}+\mathbf{V}^{H} \mathbf{A}^{-1} \mathbf{U}\right)^{-1} \mathbf{V}^{H} \mathbf{A}^{-1}
+}$$
+
+\section{Matrix Storage Formats}
+\textbf{Dense Matrices} are either stored in Column-Major Ordering or Row-Major Ordering. By default Eigen employs Column-Major Ordering.
+\sep
+\textbf{Sparse Matrices} can be stored in
+\begin{itemize}
+	\item COO/Triplet: Vector of triplets of (row, col, value)
+  	\item CCS: Compressed Column Storage
+  	\item CRS: Compressed Row Storage
+\end{itemize}
+where CRS consists of the arrays:
+\begin{itemize}
+	\item val: All non-zero values in Row-Major Order
+	\item col\_idx: Column index of each entry in val
+  	\item row\_ptr: Pointers to first elements of row
+\end{itemize}
+
+Note that $\text{size}(row\_ptr)=m+1$ (Sentinel).
+
+
+% Definition von ODE
+%\sep
+%\Recipe[Householder QR]

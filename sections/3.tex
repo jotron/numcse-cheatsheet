@@ -1,0 +1,140 @@
+\part{Linear Least Squares}
+\setcounter{section}{0}
+% Comparison of Methods
+Critical comparison of Methods:
+\begin{itemize}
+  \item Normal Equations: $\BigO(n^2 m + n^3)$ \\
+  	$\rightarrow$ blows up instability
+  \item Extended Normal Equations:  \\
+  	$\rightarrow$ same conditioning as $\MA$ \\
+  	$\rightarrow$ sparsity preserved
+  \item Householder QR: $\BigO(n^2 m)$ \\
+  	$\rightarrow$ always stable \\
+  	$\rightarrow$ loss of sparsity
+  \item SVD:  \\
+  	$\rightarrow$ no full rank requirement for $\MA$ \\
+\end{itemize}
+
+% Normal Equations
+\section{Normal Equation Methods}
+$$ \MA^T \MA \vx = \MA^T \vb$$
+\Warning Normal Equations are vulnerable to instability since $\operatorname{cond}_2(\MA^T \MA) = \operatorname{cond}_2(\MA)^2$
+\sep
+
+
+
+% General Definition of SVD
+\section{Singular Value Decomposition}
+
+\[
+\mat{A} =
+\MU\MSigma\MV^\Hm
+=\sum_{i=1}^{r} \sigma_i \vu_i \vv_i^\Hm,
+\quad\MA\in\K^{m\times n},
+\]
+$p:=\min\set{m,n}$, $r:=\rank(\MA)$, \\
+$\MSigma=\diag(\sigma_1,\ldots,\sigma_p)$
+$\sigma_1>\sigma_2>\ldots>\sigma_r>\sigma_{r+1}=\cdots=\sigma_p=0$
+\sep
+Full: 
+\begin{itemize}
+  \item $\MU\in\K^{m\times m}$ $[\cR(\MA)|\cN(\MA)]$\qquad (unitary)
+  \item $\MSigma\in\K^{m\times n}$\quad\quad\,\, (generalized
+  diagonal)
+  \item $\MV\in\K^{n\times n}$ $[\cR(\MA^\Hm)|\cN(\MA^\Hm)]$\qquad (unitary)
+\end{itemize}
+\sep
+Economical:
+\begin{itemize}
+  \item $\MU \in \K^{m\times p}$ $[\cR(\MA)]$\qquad (orthogonal columns)
+  \item $\MSigma\in\K^{p\times p}$\qquad\qquad\quad (diagonal)
+  \item $\MV\in\K^{n\times p}$ $[\cR(\MA^\Hm)]$\qquad (orthogonal columns)
+\end{itemize}
+\sep
+\textbf{Numerical Rank}
+$r:=\max_{j\in\set{1,\ldots,p}}\left(\frac{\sigma_j}{\sigma_1}\geq TOL\right)$
+\textbf{Cost of Eco SVD} $\BigO(\min\set{m,n}^2\max\set{m,n})$
+
+\sep
+
+% LSQ with SVD
+\Lemma[LSQ by SVD] 
+$$ \vx^* = \argmin_{\vx\in\R^n}\norm{\MA\vx-\vb}_2 = \MV_1 \Sigma_r^{-1}\MU_1^T \vb$$
+If the lsq has multiple solutions, $\vx^*$ has minimal norm.
+
+
+% Low Rank Approximation of Matrices by SVD
+\Theorem[Low Rank Approximation] Let $\MA_k$ be the matrix resulting from only keeping the first $k$ singular values of $\MA$. $\MA_k$ is the best rank-k approximation of $\MA$.
+\sep
+
+% PCA
+\Method[Principal Component Analysis] 
+\\Given a dataset in the form of a matrix $\MA =
+\MU\MSigma\MV^\Hm$, such that every column represents a time series.
+\begin{itemize}
+  \item Columns of $\MU$ capture dominant trends.
+  \item Columns of $\MV$ capture how strong the trends are in a particular column of $\MA$
+  \item Diagonal Entries of $\MSigma$ tell us how dominant the trend is overall.
+\end{itemize}
+\sep
+\Method[Proper orgthogonal decomp.]  \\Closely related is the POD problem, where we seek k-dimensional subspace $U_k$ of $\R^m$, for which the sum of squared distances of the data points $\MA = [\va_1, \dots \va_n]$ to $U_k$ is minimal. \\
+Using the \textit{Low Rank Approximation} Theorem we can prove that
+$$U_k = \cR(\MU_{:,1:k})$$
+
+% General Definition of QR
+\section{QR Decomposition}
+$$\mat{A} = \MQ\MR , \quad \MA\in\K^{m\times n} \quad \MQ\in\K^{m\times m}$$
+Idea: LLQ Problems are easier to solve for triangular matrices, hence we manage to decompose $\MA$ into $\MQ\MR$ we have such a System since orthogonal matrices are norm-invariant.
+
+\sep
+
+\Method[Householder Reflections] The following Householder matrix performs a reflection 
+$$
+\MH(\mathbf{v}):=\mathbf{I}-2 \mathbf{v v}^{\top}
+$$
+at the hyperplane with normal unit vector $\vv$ (Intuitively $\mathrm{H}(\vv)$ subtracts the projection of $\vx$ on $\vv$ twice). \\
+We can reduce a matrix $\MA$ to $\MR$ using $n$ successive transformations
+$$ \MH(\vv_n) \dots \MH(\vv_1) \MA = \MR$$
+ , where $\MH(\vv_i)$ reflects the lower part of the i'th column of the current $\MA$ on $\ve_i$. E.g
+ $$ \vv_1 = \va_1 \pm \norm{\va_1} \ve_1$$
+ \sep
+ 
+ \Method[Givens Rotations] We can selectively eliminate entries with Givens rotations.  The following matrix rotates everything in the hyperplane defined by $\ve_1, \ve_k$:
+ $$ \MG(1, k, \theta) = 
+\left[\begin{array}{ccccc}
+c & \cdots & s & \cdots & 0 \\
+\vdots & \ddots & \vdots & & \vdots \\
+-s & \cdots & c & \cdots & 0 \\
+\vdots & & \vdots & \ddots & \vdots \\
+0 & \cdots & 0 & \cdots & 1
+\end{array}\right]\left[\begin{array}{c}
+a_{1} \\
+\vdots \\
+a_{k} \\
+\vdots \\
+a_{n}
+\end{array}\right]
+$$
+Note that $c=\cos(\theta), s=\sin(\theta)$. Two eliminate $a_k$ we solve the equations.
+$$ c^2 + s^2 = 1 \quad \text{and} \quad
+   -s a_1 + c a_k = 0$$
+ As with householder reflections, there are always two possibilites, one of whom is cancellation free.
+ \sep
+ \Lemma[Modifications Techniques]
+ Computing the QR decomposition of a slightly modified matrix (rank-1-modification, adding a row, adding a column) can be done efficiently in $\BigO(mn + n^2)$.
+ 
+ % General Definition of LSQ
+\section{Constrained Least Squares}
+Problem: Find $x\in \R^n$ such that
+$$\norm{\MA\vx-\vb}\rightarrow \min \quad \text{and} \quad \MC\vx = \vd.$$
+
+\Method[Lagrangian Multipliers] We intoduce the multiplier $\vm \in \R^p$ to solve
+$$ \vx^* = \argmin_{\vx\in\R^n}\sup_{\vm\in\R^p}\norm{\MA\vx-\vb}_2 + \vm^T(\MC\vx-\vd)$$
+and we notice that for any finite solution $(\MC\vx-\vd)=0$. By realising that that fo the solution all partial derivatives must be zero we can obtain the \textit{augmented normal equations}.
+
+\Method[By SVD] We have
+$$\vx \in \vx_0 + \cN(\MC) \quad \vx_0 = \text{particular solution}$$ 
+Hence since the SVD gives a basis of $\cN(\MC)$ we write
+$$\vx = \vx_0 + \MV_2\vy$$
+for some $\vy$ which leads to the standard lsq:
+$$\norm{\MA\MV_2\vy-(\vb-\MA\vx_0)}\rightarrow \min$$

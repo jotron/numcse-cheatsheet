@@ -1,0 +1,120 @@
+\documentclass[a4paper,landscape,8pt]{extarticle}
+
+\usepackage[a4paper,margin=0.7cm]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot[R]{\vspace{-35pt}\Huge\thepage}
+
+\usepackage{multicol}
+\setlength\columnsep{20pt}
+\setlength{\columnseprule}{0.1pt} 
+
+\setlength\parindent{0pt}
+
+\usepackage[ngerman]{babel} % Silbentrennung
+\usepackage[utf8]{inputenc} % Umlaute
+\usepackage{microtype}
+
+\usepackage{hyperref}
+
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage{comment}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{cancel}
+
+\usepackage{color}
+\usepackage[table]{xcolor}
+
+\usepackage{color}
+
+\usepackage{booktabs}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+  
+\usepackage{enumitem}
+\setlist{noitemsep,topsep=3pt,parsep=3pt,partopsep=3pt,leftmargin=18pt}
+\renewcommand\labelitemi{{\boldmath$\cdot$}}
+\newcommand{\listarrow}{
+\smash{\scalebox{1.5}[1.75]{\rotatebox[origin=c]{180}{$\Lsh$}}}
+}
+
+\usepackage{xifthen}
+\include{custom-commands}
+
+% remove command
+\renewcommand*{\newpage}{ \ }
+
+%\renewcommand*{\part}{\ }
+
+
+% package to define custom environments
+\usepackage{environ}
+
+% boolean variable to show contents
+\newif\ifshowwarmup
+%\showwarmuptrue % set it to true
+\showwarmupfalse % set it to false
+
+% definition of custom environment
+\NewEnviron{warmup}{\ifshowwarmup \BODY \fi}
+
+% shorthand for custom environment
+%\def\WU#1\UW{\begin{warmup}#1\end{warmup}}
+
+% Ultra shortening of Document
+%
+% http://www.terminally-incoherent.com/blog/
+%2007/09/19/latex-squeezing-the-vertical-white-space/
+%\setlength{\parskip}{0pt}
+%\setlength{\parsep}{0pt}
+%\setlength{\headsep}{0pt}
+%\setlength{\topskip}{0pt}
+%\setlength{\topmargin}{0pt}
+%\setlength{\topsep}{0pt}
+%\setlength{\partopsep}{0pt}
+%\linespread{0.8}
+%\usepackage[compact]{titlesec}
+%\titlespacing{\section}{0pt}{*0}{*0}
+%\titlespacing{\subsection}{0pt}{*0}{*0}
+%\titlespacing{\subsubsection}{0pt}{*0}{*0}
+%\usepackage{savetrees} %(alternative)
+
+% Use custom numbering
+\setcounter{secnumdepth}{2}
+
+\title{Numerical Methods}
+\date{\today}
+
+\begin{document}
+
+\setlength{\belowdisplayskip}{4pt} \setlength{\belowdisplayshortskip}{4pt}
+\setlength{\abovedisplayskip}{4pt} \setlength{\abovedisplayshortskip}{4pt}
+
+\graphicspath{ {./img/} }
+
+% allow page break in align* environment
+\allowdisplaybreaks
+
+\begin{multicols*}{4}
+\raggedcolumns
+
+\maketitle
+
+\setcounter{tocdepth}{2}
+%\tableofcontents
+
+\include{sections/1}
+\include{sections/2}
+\include{sections/3}
+\include{sections/4}
+
+\end{multicols*}
+\end{document}
