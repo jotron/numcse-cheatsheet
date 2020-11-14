@@ -43,10 +43,45 @@ x_{4}
 \end{array}\right]
 $$
 
+\Def[Discrete Convolution] A Filter where given $\mathbf{x}=\left[x_{0}, \ldots, x_{m-1}\right]^{\top} \in \mathbb{K}^{m}, \mathbf{h}=\left[h_{0}, \ldots, h_{n-1}\right]^{\top} \in \mathbb{K}^{n}$ their DCONV is the vector $\mathbf{y} \in \mathbb{K}^{m+n-1}$ with components.
+$$y_{k}=\sum_{j=0}^{m-1} h_{k-j} x_{j}$$
+
+\Def[Periodic Convolution] Given two $n$-periodic signals $\left(u_{k}\right)_{k \in \mathbb{Z}},\left(x_{k}\right)_{k \in \mathbb{Z}}$ PCONV yields the $n$-periodic signal:
+$$\left(y_{k}\right):=\left(u_{k}\right) *_{n}\left(x_{k}\right), y_{k}:=\sum_{j=0}^{n-1} u_{k-j} x_{j}$$
+PCONV can be represtend by a matrix $$\mathbf{C}=\left[c_{i j}\right]_{i, j=1}^{n}, c_{i j} = u_{j-i}$$. Such a matrix is called \textbf{circulant}.
+
 \section{Discrete Fourier Transform}
+The Fourier Matrix for inputs $\vy \in \C^{n}$ is given by
+$$ \MF_n = \left[\omega_{n}^{l j}\right]_{l, j=0}^{n-1} \in \mathbb{C}^{n, n} \quad \omega_{n} = \exp\left(\frac{-2\pi i}{n}\right)$$
+and $\mathrm{DFT}_{n}(\mathbf{y}):=\mathbf{F}_{n} \vy = \vc$. Properties include\\
+$$\MF_{n}^{-1}=\frac{1}{n} \MF_{n}^{\Hm}=\frac{1}{n} \overline{\MF}_{n}$$
 
-- Recall Diagonalization of Matrix (Eigenwertzerlegung?)
+\sep
+\Method[Frequency Filtering]
+The columns of $\MF_n$ are trigonometric basis vectors, where 
+$$\vv_k = \left[\cos \left(\tcg{j\frac{2 \pi}{n}}\cdot \tcp{k}\right)+\boldsymbol{\imath} \sin \left(\frac{2 \pi j k}{n}\right)\right]_{j=0}^{n-1}$$
+$\tcg{k}$ is the 'frequency' and $\tcp{j2\pi/n}$ is  the sample point.
+Hence the $\mathrm{DFT}_{n}$ is a basis transformation $$B_E \leftrightarrow B_{trig}$$
+Denoising and low/high filters can be implemented by manipulating the signal in the frequency domain.
+\sep
 
-- All circulant matrices have the same eigenvectors -> given by fourrier-matrix.
+\Lemma[Diagonalizing circulant matrices] \\
+For any circulant matrix $\MC \in \C^{n,n}$ we have 
+\begin{align*}
+&\mathbf{C}=\mathbf{F}_{n}^{-1} \operatorname{diag}\left(d_{1}, \ldots, d_{n}\right) \mathbf{F}_{n}, \\ 
+&\left[d_{0}, \ldots, d_{n-1}\right]^{\top}=\mathbf{F}_{n}\left[u_{0}, \ldots, u_{n-1}\right]^{\top}
+\end{align*}
+In other words, the columns of $\MF_n$ are eigenvectors of $\MC$.
 
+\Theorem[Convolution Theorem] 
+Periodic convolution in the time-domain equals to multiplication in the frequency-domain.
+$$
+(\mathbf{u}) *_{n}(\mathbf{x})=\mathbf{F}_{n}^{-1}\left[\left(\mathbf{F}_{n} \mathbf{u}\right)_{j}\left(\mathbf{F}_{n} \mathbf{x}\right)_{j}\right]_{j=1}^{n}
+$$
+
+\sep
+\Method[2D DFT]
 \section{Fast Fourier Transform}
+
+\sep
+\Method[Toeplitz Matrix Technique]
