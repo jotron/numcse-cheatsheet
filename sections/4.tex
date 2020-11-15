@@ -71,17 +71,45 @@ For any circulant matrix $\MC \in \C^{n,n}$ we have
 &\mathbf{C}=\mathbf{F}_{n}^{-1} \operatorname{diag}\left(d_{1}, \ldots, d_{n}\right) \mathbf{F}_{n}, \\ 
 &\left[d_{0}, \ldots, d_{n-1}\right]^{\top}=\mathbf{F}_{n}\left[u_{0}, \ldots, u_{n-1}\right]^{\top}
 \end{align*}
-In other words, the columns of $\MF_n$ are eigenvectors of $\MC$.
+In other words, the columns of $\MF_n$ are eigenvectors of $\MC$. \\
 
 \Theorem[Convolution Theorem] 
 Periodic convolution in the time-domain equals to multiplication in the frequency-domain.
 $$
 (\mathbf{u}) *_{n}(\mathbf{x})=\mathbf{F}_{n}^{-1}\left[\left(\mathbf{F}_{n} \mathbf{u}\right)_{j}\left(\mathbf{F}_{n} \mathbf{x}\right)_{j}\right]_{j=1}^{n}
 $$
-
+Implementation Speedup: $\BigO(n^2) \rightarrow \BigO(n \log_2(n))$
 \sep
-\Method[2D DFT]
+
+\Theorem[2D DFT] Is given by 
+$$
+\mathbf{C}=\mathbf{F}_{m}\left(\mathbf{F}_{n} \mathbf{Y}^{\top}\right)^{\top}=\mathbf{F}_{m} \mathbf{Y} \mathbf{F}_{n}
+$$
+The real basis vectors can be visualized.
+Analogously there is a 2D-Convolution-Theorem:
+$$
+\mathbf{X} *_{m, n} \mathbf{Y}=\operatorname{DFT}_{m, n}^{-1}\left(\mathrm{DFT}_{m, n}(\mathbf{X}) \odot \operatorname{DFT}_{m, n}(\mathbf{Y})\right)
+$$
+\begin{center}
+\includegraphics[scale=0.15]{DCT-8x8.png}
+\end{center}
+
+\Method[Deblurring an image] A blurred image can be modeled as the 2D-Convolution of the actual image with a small filter. In the 2D-frequency-domain deblurring equals component wise division.
+
 \section{Fast Fourier Transform}
+The DFT of a vector of length $pq$ can be divided in $p$ DFT's of vectors of length $q$. The asymptotic runtime for this special 'divide and conquer' is
+$$\FFT(n) \in \BigO(n \log n)$$
+Special Case $p=2$: 
+$$\DFT(\vv) = \DFT(\vv_{even})+s \DFT(\vv_{odd})$$
 
 \sep
-\Method[Toeplitz Matrix Technique]
+\Def[Toeplitz Matrix] $\mathbf{T}=\left(t_{i j}\right)_{i, j=1}^{n} \in \mathbb{K}^{mn}$
+is a Toeplitz matrix if it has constant diagonals given by a vector $\vu \in \K^{m+n-1}$.\\
+
+\Lemma[Fast Arithmetic] \\
+\textbf{Vector Multiplication: }
+Construct Circulant Matrix $\MC \in \K^{m+n, m+n}$ s.t.
+$$\left[\begin{array}{l} \MT\vx \\ \star \end{array}\right] = \MC \left[\begin{array}{l} \vx \\0\end{array}\right]$$
+which can be computed in the frequency domain by Convolution Theorem in $\BigO((n+m)\log(n+m))$.
+\textbf{LSE Solution: }
+The Levinson Algorithm solves the LSE in $\BigO(n^2)$

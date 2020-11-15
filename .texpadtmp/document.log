@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.10)  14 NOV 2020 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.3.10)  15 NOV 2020 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -271,6 +271,13 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen127
 \Gin@req@width=\dimen128
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen129
+\WF@size=\dimen130
+\c@WF@wrappedlines=\count115
+\WF@box=\box55
+\WF@everypar=\toks21
+Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
  Excluding comment 'comment') (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
@@ -282,49 +289,49 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
-\ex@=\dimen129
+\@emptytoks=\toks22
+\ex@=\dimen131
 )) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen130
+\pmbraise@=\dimen132
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count115
+\inf@bad=\count116
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count116
-\leftroot@=\count117
+\uproot@=\count117
+\leftroot@=\count118
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count118
-\DOTSCASE@=\count119
+\classnum@=\count119
+\DOTSCASE@=\count120
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box55
-\strutbox@=\box56
-\big@size=\dimen131
+\Mathstrutbox@=\box56
+\strutbox@=\box57
+\big@size=\dimen133
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count120
-\c@MaxMatrixCols=\count121
+\macc@depth=\count121
+\c@MaxMatrixCols=\count122
 \dotsspace@=\muskip11
-\c@parentequation=\count122
-\dspbrk@lvl=\count123
-\tag@help=\toks22
-\row@=\count124
-\column@=\count125
-\maxfields@=\count126
-\andhelp@=\toks23
-\eqnshift@=\dimen132
-\alignsep@=\dimen133
-\tagshift@=\dimen134
-\tagwidth@=\dimen135
-\totwidth@=\dimen136
-\lineht@=\dimen137
-\@envbody=\toks24
+\c@parentequation=\count123
+\dspbrk@lvl=\count124
+\tag@help=\toks23
+\row@=\count125
+\column@=\count126
+\maxfields@=\count127
+\andhelp@=\toks24
+\eqnshift@=\dimen134
+\alignsep@=\dimen135
+\tagshift@=\dimen136
+\tagwidth@=\dimen137
+\totwidth@=\dimen138
+\lineht@=\dimen139
+\@envbody=\toks25
 \multlinegap=\skip57
 \multlinetaggap=\skip58
-\mathdisplay@stack=\toks25
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -347,18 +354,18 @@ Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
  (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
-\col@sep=\dimen138
-\ar@mcellbox=\box57
-\extrarowheight=\dimen139
-\NC@list=\toks26
+\col@sep=\dimen140
+\ar@mcellbox=\box58
+\extrarowheight=\dimen141
+\NC@list=\toks27
 \extratabsurround=\skip59
 \backup@length=\skip60
-\ar@cellbox=\box58
+\ar@cellbox=\box59
 )
-\everycr=\toks27
+\everycr=\toks28
 \minrowclearance=\skip61
 )
-\rownum=\count127
+\rownum=\count128
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -372,44 +379,44 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 )) (/usr/local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen140
-\lightrulewidth=\dimen141
-\cmidrulewidth=\dimen142
-\belowrulesep=\dimen143
-\belowbottomsep=\dimen144
-\aboverulesep=\dimen145
-\abovetopsep=\dimen146
-\cmidrulesep=\dimen147
-\cmidrulekern=\dimen148
-\defaultaddspace=\dimen149
-\@cmidla=\count128
-\@cmidlb=\count129
-\@aboverulesep=\dimen150
-\@belowrulesep=\dimen151
-\@thisruleclass=\count130
-\@lastruleclass=\count131
-\@thisrulewidth=\dimen152
+\heavyrulewidth=\dimen142
+\lightrulewidth=\dimen143
+\cmidrulewidth=\dimen144
+\belowrulesep=\dimen145
+\belowbottomsep=\dimen146
+\aboverulesep=\dimen147
+\abovetopsep=\dimen148
+\cmidrulesep=\dimen149
+\cmidrulekern=\dimen150
+\defaultaddspace=\dimen151
+\@cmidla=\count129
+\@cmidlb=\count130
+\@aboverulesep=\dimen152
+\@belowrulesep=\dimen153
+\@thisruleclass=\count131
+\@lastruleclass=\count132
+\@thisrulewidth=\dimen154
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/02/04 v3.8 Customized lists
 \labelindent=\skip62
-\enit@outerparindent=\dimen153
-\enit@toks=\toks28
-\enit@inbox=\box59
-\enit@count@id=\count132
-\enitdp@description=\count133
+\enit@outerparindent=\dimen155
+\enit@toks=\toks29
+\enit@inbox=\box60
+\enit@count@id=\count133
+\enitdp@description=\count134
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count134
-\calc@Bcount=\count135
-\calc@Adimen=\dimen154
-\calc@Bdimen=\dimen155
+\calc@Acount=\count135
+\calc@Bcount=\count136
+\calc@Adimen=\dimen156
+\calc@Bdimen=\dimen157
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count136
+\calc@Ccount=\count137
 \calc@Cskip=\skip65
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -423,23 +430,23 @@ Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.aux (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/1.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/2.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/3.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/4.aux))
+)) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.aux (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/1.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/2.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/3.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/4.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/5.aux))
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -475,7 +482,7 @@ LaTeX Font Info:    ... okay on input line 94.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 94.
+LaTeX Info: Redefining \microtypecontext on input line 95.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -488,35 +495,35 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring OFF on input line 94.
+\AtBeginShipoutBox=\box61
+Package hyperref Info: Link coloring OFF on input line 95.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count137
+\c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 94.
-LaTeX Info: Redefining \pageref on input line 94.
-LaTeX Info: Redefining \nameref on input line 94.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
  (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.out) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.out)
 \@outlinefile=\write4
 \openout4 = `document.out'.
 
  (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count138
-\scratchdimen=\dimen156
-\scratchbox=\box61
-\nofMPsegments=\count139
-\nofMParguments=\count140
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count141
-\MPscratchDim=\dimen157
-\MPnumerator=\count142
-\makeMPintoPDFobject=\count143
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count139
+\scratchdimen=\dimen158
+\scratchbox=\box62
+\nofMPsegments=\count140
+\nofMParguments=\count141
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count142
+\MPscratchDim=\dimen159
+\MPnumerator=\count143
+\makeMPintoPDFobject=\count144
+\everyMPtoPDFconversion=\toks31
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
  (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -529,13 +536,13 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 108.
+LaTeX Font Info:    Try loading font information for U+msa on input line 109.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 108.
+LaTeX Font Info:    Try loading font information for U+msb on input line 109.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -640,49 +647,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
+
+ []
+
+
+Overfull \hbox (1.27136pt too wide) detected at line 92
+\OT1/cmr/bx/n/8 X \OMS/cmsy/m/n/8 ^^C[] \OT1/cmr/bx/n/8 Y \OT1/cmr/m/n/8 = [][] []
+ []
+
+<./img/DCT-8x8.png, id=93, 188.20313pt x 188.20313pt>
+File: ./img/DCT-8x8.png Graphic file (type png)
+<use ./img/DCT-8x8.png>
+Package pdftex.def Info: ./img/DCT-8x8.png  used on input line 94.
+(pdftex.def)             Requested size: 28.22925pt x 28.22925pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+[][][][][][][]\OT1/cmr/m/n/8 (+20) A blur-red
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{section.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.84 \section{Fast Fourier Transform}
-                                     ) [2
+l.99 \section{Fast Fourier Transform}
+                                     
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+
+ []
+
+)
+\openout2 = `sections/5.aux'.
+
+ (./sections/5.tex) [2
 \@writefile{toc}{\contentsline {section}{\numberline {4}Constrained Least Squares}{2}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {part}{IV\hspace  {1em}Filtering Algorithms}{2}{part.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {1}Filters \& Convolution}{2}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Discrete Fourier Transform}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Fast Fourier Transform}{2}{section.3}\protected@file@percent }
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 118.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 118.
- (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.aux (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/1.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/2.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/3.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/4.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 118.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 118.
+\@writefile{toc}{\contentsline {part}{V\hspace  {1em}Data Interpolation in 1D}{2}{part.5}\protected@file@percent }
+ <./img/DCT-8x8.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+ (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.aux (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/1.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/2.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/3.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/4.aux) (/Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/sections/5.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 120.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 118.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--118
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
 [] [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--118
+Underfull \hbox (badness 10000) in paragraph at lines 120--120
 
  []
 
  ) 
 Here is how much of TeX's memory you used:
- 10393 strings out of 492616
- 155756 string characters out of 6128982
- 329571 words of memory out of 5000000
- 14006 multiletter control sequences out of 15000+600000
- 16470 words of font info for 89 fonts, out of 8000000 for 9000
+ 10476 strings out of 492616
+ 157048 string characters out of 6128982
+ 332230 words of memory out of 5000000
+ 14072 multiletter control sequences out of 15000+600000
+ 16520 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,43p,335b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.pdf (2 pages, 254546 bytes).
+ 43i,11n,43p,335b,556s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on /Users/joelandre/Documents/ETH/NumCSE/numcse-cheatsheet/.texpadtmp/document.pdf (2 pages, 278314 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 11 named destinations out of 1000 (max. 500000)
- 21641 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 179 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 12 named destinations out of 1000 (max. 500000)
+ 21654 words of extra memory for PDF output out of 24883 (max. 10000000)
 
