@@ -48,12 +48,12 @@ $$y_{k}=\sum_{j=0}^{m-1} h_{k-j} x_{j}$$
 
 \Def[Periodic Convolution] Given two $n$-periodic signals $\left(u_{k}\right)_{k \in \mathbb{Z}},\left(x_{k}\right)_{k \in \mathbb{Z}}$ PCONV yields the $n$-periodic signal:
 $$\left(y_{k}\right):=\left(u_{k}\right) *_{n}\left(x_{k}\right), y_{k}:=\sum_{j=0}^{n-1} u_{k-j} x_{j}$$
-PCONV can be represtend by a matrix $$\mathbf{C}=\left[c_{i j}\right]_{i, j=1}^{n}, c_{i j} = u_{j-i}$$. Such a matrix is called \textbf{circulant}.
+PCONV can be represtend by a matrix $$\mathbf{C}=\left[c_{i j}\right]_{i, j=1}^{n}, c_{i j} = u_{j-i}$$. Such a matrix is called \textbf{circulant}. The vector $\vu$ s.t. $\MC = \operatorname{circul}(\vu)$ corresponds to $\MC_{:,1}$.
 
 \section{Discrete Fourier Transform}
 The Fourier Matrix for inputs $\vy \in \C^{n}$ is given by
 $$ \MF_n = \left[\omega_{n}^{l j}\right]_{l, j=0}^{n-1} \in \mathbb{C}^{n, n} \quad \omega_{n} = \exp\left(\frac{-2\pi i}{n}\right)$$
-and $\mathrm{DFT}_{n}(\mathbf{y}):=\mathbf{F}_{n} \vy = \vc$. Properties include\\
+and $\mathrm{DFT}_{n}(\mathbf{y}):=\mathbf{F}_{n} \vy = \left[\sum_{j=0}^{n-1} y_{j} \omega_{n}^{k j}\right]_{k=0}^{n-1}$. \\ Properties include
 $$\MF_{n}^{-1}=\frac{1}{n} \MF_{n}^{\Hm}=\frac{1}{n} \overline{\MF}_{n}$$
 
 \sep
@@ -104,12 +104,13 @@ $$\DFT(\vv) = \DFT(\vv_{even})+s \DFT(\vv_{odd})$$
 
 \sep
 \Def[Toeplitz Matrix] $\mathbf{T}=\left(t_{i j}\right)_{i, j=1}^{n} \in \mathbb{K}^{mn}$
-is a Toeplitz matrix if it has constant diagonals given by a vector $\vu \in \K^{m+n-1}$.\\
+is a Toeplitz matrix if it has constant diagonals given by a vector $\vu \in \K^{m+n-1}$. Note that every circulant matrix is also a Toeplitz matrix.\\
 
-\Lemma[Fast Arithmetic] \\
-\textbf{Vector Multiplication: }
+\Lemma[Fast Arithmetic for Toeplitz] \\
+\textbf{Vector Multiplication in $\BigO((n+m)\log(n+m))$: }
 Construct Circulant Matrix $\MC \in \K^{m+n, m+n}$ s.t.
 $$\left[\begin{array}{l} \MT\vx \\ \star \end{array}\right] = \MC \left[\begin{array}{l} \vx \\0\end{array}\right]$$
-which can be computed in the frequency domain by Convolution Theorem in $\BigO((n+m)\log(n+m))$.
-\textbf{LSE Solution: }
-The Levinson Algorithm solves the LSE in $\BigO(n^2)$
+which can be solved in the frequency domain (Convolution Theorem).
+
+\textbf{LSE Solution in $\BigO(n^2)$: }
+The Levinson Algorithm.
