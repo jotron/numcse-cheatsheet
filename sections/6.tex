@@ -1,0 +1,116 @@
+\columnbreak
+\part{Approximation in 1D}
+\setcounter{section}{0}
+
+%Goal
+\textbf{Goal:} For a given function $f$ on $I \subset \R$ find a simpler function $\tilde{f}$ (called \textit{surrogate}) such that the approximation error $\norm{f-\tilde{f}}$ is small for some norm.\\
+
+$\longrightarrow$ Focus on \textbf{Approximation by interpolation}\\
+$\longrightarrow$ Hence, good interpolation nodes are key.
+
+\section{Global Polynomial Approx.}
+
+\Def[Polynomial Interp. Approx. scheme] \\
+Given a node set $\mathcal{T}=\left\{t_{0}, \ldots, t_{n}\right\} \subset I$, define 
+$$\tilde{f} = p \in \mathcal{P}_n \quad \text{s.t } p(t_j)=f(t_j)$$ as the interpolating polynomial.
+
+\sep
+\Theorem[Weierstrass] Every continuous function defined on a close interval can be uniformly approximated by a polynomial (of increasing degree). \\
+
+\Theorem[Best approximation, Jackson] For $f \in C^r([-1,1])$ we have
+\begin{align*}
+	\inf _{p \in \mathcal{P}_{n}}\|f-p\|_{\infty} \leq &  \left(1+\pi^{2} / 2\right)^{r} \frac{(n-r) !}{n !}\left\|f^{(r)}\right\|_{\infty} \\
+	\in & \quad \BigO(n^{-r})
+\end{align*}
+
+\Def[Error convergence] We distinguish
+\begin{itemize}
+	\item Algebraic convergence: $\norm{f-\tilde{f}}= \BigO(n^{-p})$ with a rate $p>0$
+	
+	\item Exponential convergence: $\norm{f-\tilde{f}}= \BigO(q^{n})$ for $0<q<1$
+\end{itemize}
+\sep
+
+\Def[Chebychev interpolation] Lagrange interpolation on $I=[-1,1]$ using nodes 
+$$t_{k}=\cos \left(\frac{2 k+1}{2 n} \pi\right), \quad k=0, \ldots, n-1$$. These nodes are a priori optimal for the approximation error, note that they gather around the borders \\
+\textbf{Error Estimate:} Almost algebraic
+
+
+\begin{comment}
+## Error Theory
+-> Lebesque Constant (infinite norm of error of lagrange interpolation, connects best error with error?)
+
+Smoothness plays a large role to gauge errors
+
+## Finding good interpolation 
+-> Chebychev Nodes are a priori optimal
+-> Write down the proof of why! (kind of nice) (difference in p_n-1 and n+1 zeros -> ==0)
+-> Can be done efficiently by FFT with equidistant nodes?
+
+### 
+
+# What is to take home of "analytic interpolation", just an upper bound on interpolation error?
+def analytic ~smooth
+\end{comment}
+
+\section{Trigonometric Poly. Approx.}
+x \\
+x \\
+x \\
+
+\begin{comment}
+# Trigonometric Approximation (For periodic Signals)
+
+## Error Estimate
+-> smoothness leads to faster convergence
+-> Every function has a Fourrier Series?
+
+- L2-Norm of Fourrier Series given by sum of coefficients square
+- Fourier modes higner than n can be distinguished when only sampling n points, hence they all get mapped to their modulo.
+  -> The coeffiences are the sum of all higher multiples.
+  
+Now to continue on the search for an error estimate, need decay law for Fourrier:
+ ->The smoother a periodic function the faster the decay of its Fourier coefficients decay in O(xxx) 6.5.2.20
+ 
+ -> Main Result: algebraic convergenceof theL2-norm of the trigonometric interpolation error forfunctions withlimited smoothness
+ 
+ ## Analytic Functions
+ -> exponential convergence
+ -> exponential decay of Fourrier coeffs.
+ -> The larger the strip of analiticity the beter.
+ 
+ Seems important, why fourrier coefficient equal integral over 0, 1? 4.2.6.20 -> its simply the projection of the function on that vector!
+ Write entry in summary about fourrier Series!
+\end{comment}
+
+
+\section{Piecewise Polynomial Approx.}
+
+\Method[Piecewise Lagrange] \\
+Given an interval $[a,b]$ endowed with a mesh $\mathcal{M}$, choose local degree and local interpolation nodes for each mesh cell to perform Lagrange Interpolation. \\
+\textbf{Error Estimate:} For constant polynomial degree $n$ and mesh width $h_\mathcal{M}$ we have
+$$\norm{f-s}_\infty \leqslant \frac{h_{\mathcal{M}}^{n+1}}{(n+1) !}\norm{f^{(n+1)}}_\infty$$ 
+
+
+\Method[Piecewise Cubic Hermite] \\
+Given $f, \mathcal{M}$, the piecewise cubic hermite interpolant is defined as (Note that we use exact slopes!)
+$$
+s_{\mid\left[x_{j-1}, x_{j}\right]} \in \mathcal{P}_{3}, \quad s\left(x_{j}\right)=f\left(x_{j}\right), \quad s^{\prime}\left(x_{j}\right)=f^{\prime}\left(x_{j}\right)
+$$ 
+
+\begin{comment}
+ 
+ ## Spline
+  - Convergence in O(h^4)
+ Spline vs Hermite?
+ 
+
+
+Remaining: 
+- Pullback 
+
+\end{comment}
+
+
+ 
+ 

@@ -26,7 +26,7 @@ There are two methods to choose pivots in the elimination process with a Permuta
 
 \section{Exploiting Structure when Solving Linear Systems}
 
-\Method[Low Rank Modification] Use the \textit{Sherman-Morrison-Woodbury}
+\Theorem[Low Rank Modification] Use the \textit{Sherman-Morrison-Woodbury}
 Formula to compute the inverse of slightly modified (rank-1-modification) matrix.
 $$
 {\scriptstyle \left(\mathbf{A}+\mathbf{U V}^{H}\right)^{-1}=\mathbf{A}^{-1}-\mathbf{A}^{-1} \mathbf{U}\left(\mathbf{I}+\mathbf{V}^{H} \mathbf{A}^{-1} \mathbf{U}\right)^{-1} \mathbf{V}^{H} \mathbf{A}^{-1}
