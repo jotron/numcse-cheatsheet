@@ -23,22 +23,50 @@ $$\tilde{f} = p \in \mathcal{P}_n \quad \text{s.t } p(t_j)=f(t_j)$$ as the inter
 	\in & \quad \BigO(n^{-r})
 \end{align*}
 
+\Lemma[Sensitivity of Interpolation] \\
+For data $y$ and noise $\delta$ we have
+$$
+  \norm{\mathrm{I}_{\mathcal{T}}(y + \delta) - \mathrm{I}_{\mathcal{T}}(y)} = 
+  \norm{\mathrm{I}_{\mathcal{T}}(\delta)} \leq
+  \norm{\mathrm{I}_{\mathcal{T}}}\norm{\delta}
+$$
+where $\norm{\mathrm{I}_{\mathcal{T}}}$ denotes the operator norm, for the infinity norm we have
+$$
+\left\|I_{\mathcal{T}}\right\|_{\infty}:=\sup _{\mathbf{y} \in \mathbb{R}^{n+1}} \frac{\left\|I_{\mathcal{T}}(\mathbf{y})\right\|_{L^{\infty}(I)}}{\|\mathbf{y}\|_{\infty}}=\left\|\sum_{i=0}^{n}\left|L_{i}\right|\right\|_{L^{\infty}(I)}
+$$
+which coincides with the Lebesgue Constant $\lambda_\mathcal{T}$. \\
+This is important because a result for $f\in C^0(I)$ is
+$$
+\left\|f-\tilde f\right\|_{L^{\infty}(I)} \leq\left(1+\lambda_{\mathcal{T}}\right) \inf _{p \in \mathcal{P}_{n}}\|f-p\|_{L^{\infty}(I)}
+$$
+
 \Def[Error convergence] We distinguish
 \begin{itemize}
 	\item Algebraic convergence: $\norm{f-\tilde{f}}= \BigO(n^{-p})$ with a rate $p>0$
 	
 	\item Exponential convergence: $\norm{f-\tilde{f}}= \BigO(q^{n})$ for $0<q<1$
 \end{itemize}
+
+
 \sep
 
-\Def[Chebychev interpolation] Lagrange interpolation on $I=[-1,1]$ using nodes 
+\Def[Chebychev interpolation] \\
+Polynomial Approximation based on equidistant nodes does not necessarily converge, hence we want a better node set. Based on the error bound 
+$$
+\norm{f-\tilde f}_{\infty} \leq \frac{1}{(n+1) !}\left\|f^{(n+1)}\right\|_{\infty}\|w\|_{L^{\infty}(I)}
+$$
+we look for a nodes that minimize the polynomial 
+$$
+w(t):=\left(t-t_{0}\right) \cdots\left(t-t_{n}\right)
+$$
+On $I=[-1,1]$ these nodes are the zeros of the $n+1$'th Chebychev Polynomial
 $$t_{k}=\cos \left(\frac{2 k+1}{2 n} \pi\right), \quad k=0, \ldots, n-1$$. These nodes are a priori optimal for the approximation error, note that they gather around the borders \\
-\textbf{Error Estimate:} Almost algebraic
-
+\textbf{Error Estimate:} $\lambda_\mathcal{T} \in \BigO(\log n)$, hence almost algebraic \\
+\textbf{Computational Aspect:} There is a more efficient algorithm to evaluate the resulting interpolating polynomial then standard interpolation algorithms. The key idea is representing $\tilde f$ in Chebychev Polynomial Basis: \\
+Evaluation: $\BigO(nm)$ for m points. (Clenshaw Alg.) \\
+Comp. of coeffs.: $\BigO(n \log n)$ (FFT Alg.)
 
 \begin{comment}
-## Error Theory
--> Lebesque Constant (infinite norm of error of lagrange interpolation, connects best error with error?)
 
 Smoothness plays a large role to gauge errors
 
@@ -104,10 +132,17 @@ $$
   - Convergence in O(h^4)
  Spline vs Hermite?
  
+ # Do a subsection on Best approximation Error
+ algebraic for limited smoothness
+ exponential convergence for analytic functions
 
+6.2.2.15 give it more merit
 
 Remaining: 
 - Pullback 
+
+## Error bounds
+chebychev bound on analytic functions convergence?
 
 \end{comment}
 

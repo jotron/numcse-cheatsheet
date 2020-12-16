@@ -1,0 +1,99 @@
+\columnbreak
+\part{Numerical Quadrature}
+\setcounter{section}{0}
+
+%Goal
+\textbf{Goal:} Numerically evaluate integrals $\int_{\Omega} f(x) dx$ with as few evaluation points as possible (imagine $f$ to be a computationally expensive function).\\
+
+\textbf{Note:} Quadrature Rules are defined on the reference interval $[-1,1]$ but from Analysis we have
+$$\int_a^b f(t) \,dt = \frac{b-a}{2} \int_{-1}^1 \hat{f}(t) \,dt$$
+
+\Def[Quadrature Formula/Rule]\\
+An $n$-point quadrature rule approximates an integral through a weighted sum of point values.
+$$\int_{a}^{b} f(t) \mathrm{d} t \approx Q_{n}(f):=\sum_{j=1}^{n} w_{j}^{(n)} f(c_{j}^{(n)})$$
+
+\section{Polynomial Quadrature}
+
+Approximation schemes induce quadrature rules. From Lagrange Interpolation we get
+$$\int_{a}^{b} f(t) dt \approx  \int_{a}^{b} \tilde{f}(t) dt = \sum_{i=0}^{n-1} f(t_i) \int_{a}^{b} L_i(t) dt$$
+
+\Def[Newton-Cotes rules] The $n$-point quadrature rule results from polynomial approximation with equidistant quadrature nodes
+$$t_j= a+j\frac{b-a}{n-1} \quad j=0,\dots,n-1$$
+
+\Def[Clenshaw-Curtis rules] The $n$-point QR results from polynomial approximation with chebychev nodes. The weights can be computed with FFT in $\BigO(n \log n)$.
+
+\sep
+Error bounds on approximation induce quadrature error bounds since:
+$$\abs{\int_a^b f(t) - Q_n(f)} \leq|b-a|\|f-\tilde f\|_{L^{\infty}([a, b])}$$
+\Lemma[Clenshaw-Curtis error] From approximation error estimates on chebychev interpolation we get error convergence:
+\begin{itemize}
+	\item $\BigO(\log n / n^r)$ for limited smoothness integrands
+	\item $\BigO(x^{-n})$ for analyticly extendable integrands
+\end{itemize}
+
+\section{Gauss Quadrature}
+Gauss Quadrature maximises order, which is the polynomial degree $+1$ for which the quadrature rule is guaranteed to be exact. \\
+
+\Lemma[Order] Gauss Quadrature is the unique rule of order $2n$. This is intuitively possible due to n degrees of freedoms in nodes and n degrees of freedom in weights. 
+
+\sep
+For an n-point quadrature rule $Q_n$ of order $q$ with positive weight we have that
+$$ \forall p \in \mathcal{P}_{q-1} \quad \text{Error}(f) = \text{Error}(f-p)$$ 
+from this we can derive the bound
+$$ {
+\left|\int_{a}^{b} f(t) d t-Q_{n}(f)\right| \leq 2|b-a| \underbrace{\inf _{p \in \mathcal{P}_{q-1}}\|f-p\|_{\infty}}_{\text {best approx. error }}}
+$$
+Which implies algebraic convergence for limited smoothness integrands and exponential smoothness otherwise for Gauss quadrature.
+
+
+\section{Composite Quadrature}
+Piecewise polynomial quadrature gives rise to new quadrature rules:
+
+\Def[Composite trapezoidal rule]
+Arises from applying Newton-Cotes rule for $n=2$ in each interval. Equivalent to quadrature of piecewise linear approximation.
+
+\Def[Composite Simpson rule]
+Arises from applying Newton-Cotes rule for $n=3$ in each interval. Equivalent to quadrature of piecewise quadratic approximation.
+
+\sep
+In general gauss-quadrature is at least as good as composite quadrature on equidistant meshes.\\
+Except in case of quadrature over the interval of periodicity of a periodic integrand, then the trapezoidal rule with equidistant nodes converges exponentially.
+
+
+\section{Adaptive Quadrature}
+In adaptive quadrature schemes the nodes are chosen depending on the integrand. Here we present an \textit{a posteriori} algorithm, meaning that the node-set is modified in a loop until sufficient accuracy is reached. \\
+
+\Algorithm[Adapt. multilevel quadrature]
+\sep
+\begin{algorithmic}
+\State $\mathcal{M} \gets$ Initial mesh
+\While {EST$(\mathcal{M}) >$ TOL}
+	\State Mark Intervals with big error
+	\For {Marked intervals}
+		\State Add point in middle
+	\EndFor
+\EndWhile
+\end{algorithmic}
+\sep
+Where we estimate the error by computing the difference between composite Simpson and Trapezoidal rule.
+
+\begin{comment}
+
+Rem 7.4.1.7: Solve System for quadrature weight for scheme of order >= n
+
+Trick: Remove Singularity by substitution
+Applied: for exponential convergence, add constant amount to double accuracy, multiply for algebraic convergence
+
+## Discussion
+Comparison between:
+- Newton-Cotes
+- Chebyshev Quadrature
+- Gauss Quadrature
+
+Negative weights are bad for numerical stability. 
+
+
+magic of the equidistant trapezoidal rule ??? Focus Session
+
+	
+\end{comment}

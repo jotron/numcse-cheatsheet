@@ -3,7 +3,8 @@
 \setcounter{section}{0}
 
 %Goal
-\textbf{Goal:} Given data points $(t_i, y_i)$ and a finite-dimensional vector-space of functions $V$, reconstruct $f\in V$ such that $\forall i \quad f(t_i)=y_i$. \\
+\textbf{Goal:} Given $n$ data points $(t_i, y_i)$ and a finite-dimensional vector-space of functions $V$, reconstruct $f\in V$ such that $\forall i \quad f(t_i)=y_i$. \\
+We denote with $\mathrm{I}_{\mathcal{T}}(\mathbf{y})$ the polynomial interpolation operator. \\
 
 \Def[Interpol. as linear mapping] \\
 For data points $(t_i, y_i) \quad i=0,\dots,n$
@@ -23,18 +24,18 @@ $\rightarrow$ The interpolant is uniquely solv. iff $m=n$\\
 $\rightarrow$ The basis is \textbf{cardinal} if $b_{j}\left(t_{i}\right)=\delta_{i j}$
 
 \section{Global Polynomial Interpol.}
-$\rightarrow$ In general not suitable due to potentially very high sensitivity! \\
+In general global polynomial interpolation is not suitable due to potentially very high sensitivity. \\
+We differentiate the following bases for polynomial representation. In any of these bases, evaluation is possible in $\BigO(n)$ by Horner-Like schemes that exploit associativity.
 
-\Def[Monomial Basis]\\
-$\rightarrow$ Evaluation in $\BigO(n)$ by exploiting associativity.
+\Def[Monomial Basis]
+$$ p_i(t) = t^i$$
 
-\Def[Lagrange Basis]\\
+\Def[Lagrange Basis]
 $$L_{i}(t):=\prod_{j=0 \atop j \neq i}^{n} \frac{t-t_{j}}{t_{i}-t_{j}} = I_\mathcal{T}(\ve_{i+1})$$
 $\rightarrow$ Cardinal Basis.
 
-\Def[Newton Basis]\\
+\Def[Newton Basis]
 $$N_{i}(t):=\prod_{j=0}^{i-1} t-t_{j}$$
-$\rightarrow$ Evaluation in $\BigO(n)$ by exploiting associativity.
 
 \sep
 
@@ -46,17 +47,16 @@ Using precomputed weights in $\BigO(n^2)$ it achieves $\BigO(N n)$ to evaluate $
 $\rightarrow$ Aitken-Neville scheme. \\
 Evaluation in $\BigO(n^2)$ but addPoint in $\BigO(n)$.
 
-\Method[Multipoint+Updates] \\
-$\rightarrow$ Divided Differences Method. \\
-Evaluation in $\BigO(N n)$ and addPoint in $\BigO(n)$.
+\Method[Newton Interpolation] \\
+$\rightarrow$ Coefficients in $\BigO(n^2)$, Evaluation in $\BigO(n)$ and Adding-a-Node in $\BigO(n)$. \\
+Coefficients are computed with the \textit{Divided Differences} method, which is based on the following:
+$$
+a_{\ell, m}=\frac{a_{\ell+1, m}-a_{\ell, m-1}}{t_{m}-t_{\ell}}
+$$
+where $a_{\ell, m}$ denotes the leading coefficient of the the polynomial interpolating points $l \dots m$
 
 \sep
 \Method[Extrapolation] \\
-
-\sep
-\Method[Sensitivity] \\
-$\rightarrow$ We can give an upper bound on the relative absolute error independent of data points!
-Lebesgue constant catches the maximal error.
 
 \section{Shape-Preserving Interpol.}
 
@@ -97,8 +97,7 @@ $$
 	\item periodic: $s^{\prime}\left(t_{0}\right)=s^{\prime}\left(t_{n}\right), s^{\prime\prime}\left(t_{0}\right)=s^{\prime\prime}\left(t_{n}\right)$
 	\item complete: $s^{\prime}\left(t_{0}\right)=c_{0}, s^{\prime}\left(t_{n}\right)=c_{n}$
 \end{itemize}
-
-Note that: cubic splines are not shape preserving but weakly local.
+The resulting functions is in $C^2$, weakly-local and not strictly shape preserving.
 
 \section{Trigonometric Interpol.}
 bla
