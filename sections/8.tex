@@ -2,6 +2,109 @@
 \part{Iterative Methods}
 \setcounter{section}{0}
 
+This chapter focuses on solving generic non-linear systems of equations. 
+Without loss of generality we assume problems of the form $F(\vx)=\mathbf{0}$. \\
+
+\Def[$m$-point iterative method] An iterative method solves an equation by generating an arbitrarily long sequence $\vx^{(k)}$ of approximative solutions. If the next iterate only depends on $F$ and the $m$ most recent iterates, we label the method $m$-point. We denote the \textit{iteration function}:
+$$ \mathbf{x}^{(k+1)}=\Phi_{F}\left(\mathbf{x}^{(k)}, \ldots, \mathbf{x}^{(k-m+1)}\right) $$
+
+\Theorem[Consistency and convergence] An iterative method is consistent with $F(\vx)=\mathbf{0}$ if
+$$ \Phi_{F}\left(\mathbf{x}^{*}, \ldots, \mathbf{x}^{*}\right)=\mathbf{x}^{*} \Longleftrightarrow F\left(\mathbf{x}^{*}\right)=\mathbf{0} $$.
+The limit of a convergent and consistent iterative method with a continuous iterative function is a solution. \\
+
+\Def[Speed of convergence] A convergent sequence $\vx^{(k)}$ converges with \textbf{order} $p\geq 1)$ if $\exists L>0:$
+$$\left\|\mathbf{x}^{(k+1)}-\mathbf{x}^{*}\right\| \leq L\left\|\mathbf{x}^{(k)}-\mathbf{x}^{*}\right\|^{p} \quad \forall k \in \mathbb{N}_{0} $$.
+Order 1 convergence is called \textbf{linear}, and in this case the upper bound of L is called \textit{rate}. Note that linear convergences already implies exponential error convergence in $k$. 
+Denote $\epsilon_k := \norm{\mathbf{x}^{(k)}-\mathbf{x}^{*}}$, with simple calculations we derive
+$$\frac{\log \epsilon_{k+1}-\log \epsilon_{k}}{\log \epsilon_{k}-\log \epsilon_{k-1}} \approx p$$
+
+\Def[Termination criterion] 
+A stopping rule is the algorithm deciding wether the iterative method should Stop. In practice we use the posteriori correction based termination rule:
+$$\text{STOP} \Leftarrow 
+\left\|\mathbf{x}^{(k+1)}-\mathbf{x}^{(k)}\right\| \leq\left\{\begin{array}{c}
+\tau_{\mathrm{abs}} \text{  or} \\
+\tau_{\mathrm{rel}}\left\|\mathbf{x}^{(k+1)}\right\|
+\end{array}\right.
+$$
+Note that this criterion has no guaranteed reliability.
+
+
+\section{Fixed Point Iterations}
+$ := $ 1-point iterative methods.
+
+\Lemma[Local linear convergence] \\
+If $\norm{D \Phi(\vx^{*})}<1$ then the iteration converges locally at least linearly.
+
+\Lemma[Higher order local convergence]
+If the iteration function is $m+1$ times continuously differentiable and 
+$\Phi^{(l)}\left(x^{*}\right)=0 \text { for } l=1, \ldots, m $, then the iteration converges locally with order $\geq m+1$.
+
+\section{Zeros of Scalar Functions}
+
+\Method[Bisection] Similar to binary search, in each iteration the search interval is reduced to one of the halves of the current interval.\\
+$\rightarrow$ Linear Type Convergence (but not truly linear)\\
+
+\Method[1D Newton] The concept behind Model Function Methods is that at every step: $\vx^{(k+1)} := \text{zero of } \tilde{F}_k$, where $\tilde{F}_k$ is a suitable model function based on recent iterates. \\
+Newton determines the next iterate $\vx^{(k+1)}$ as a the zero of the tangent function of $F$ at $\vx^{(k)}$. We get:
+$$ \vx^{(k+1)} := \vx^{(k)} - \frac{F(\vx^{(k)})}{F'(\vx^{(k)})}$$
+$\rightarrow$ Local quadratic convergence by previous Lemma if $F'(\vx^{*})\neq 0$\\
+
+\Method[Secant Method] Define the model function as the interpolant of the last two iterates (a line). \\
+$\rightarrow$ Local order $1.62$ convergence by extensive calc., and no derivates required.\\
+$\rightarrow$ Asymptotically more efficient than Newton Method, since only one evaluation per step required. \\
+
+
+\Method[Inverse Interpolation] At step $k$
+\begin{enumerate}
+	\item Interpolate $F^{-1}$ by a polynomial $p$ with the $j$ last iterates: $p(F(x^{(k)}) = x^{(k)}$
+	\item $x^{(k+1)} = p(0)$
+\end{enumerate}
+
+\section{Newton's Method in $\R^n$}
+
+\Method[Newton]
+Analogously to 1D we get:
+$$ \vx^{(k+1)} := \vx^{(k)} - DF(\vx^{(k)})^{-1}(F(\vx^{(k)})$$
+where $DF(x)$ is the Jacobian.
+
+\section{Non-linear Least Squares}
+
+\Method[Newton for LLSQ]
+If there are more equations than unknown, solving the system of equations becomes a minimisation problem. Formally given $F: \R^n \mapsto R^m, m>n$ we look for
+$$\vx^{*} = \argmin \norm{F(\vx)}_2^2$$
+From elementary analysis we know that
+$$\grad \norm{F(\vx^{*})}_2^2 \vx^{*} = \mathbf{0}$$.
+Assuming the second derivative is available we can apply Newton's method to find a zero. \\
+
+\Method[Gauss-Newton] \\
+$\rightarrow$ only relies on the first derivative, but no quadratic convergence, usually larger convergence domain than Newton.
+\begin{enumerate}
+	\item Linearly Approximate F with $$F(\vx) \approx F(\vx^{(k)}) + DF(\vx^{(k)})(\vx-\vx^{(k)})$$
+	\item $x^{(k+1)}$
+	\begin{align*}
+		&= \argmin_{\vx} \norm{F(\vx^{(k)}) + DF(\vx^{(k)})(\vx-\vx^{(k)})}_2 \\
+		&= x^{(k)} + \argmin_{\vs} \norm{F(\vx^{(k)}) + DF(\vx^{(k)})\vs}_2 
+	\end{align*}
+	\item Solve the last linear least squares problem.
+\end{enumerate}
+In order not to overshoot, we can add a penalty term to the minimisation problem in (2.).
+ 
+
+
 \begin{comment}
+## Preconditioning Newton's Method
+-> Why does Newton converge well with linear function?
+
+
+Write Differentiation Rules in Analysis Cheatsheet
+Important Example: Inverse Matrix by Newton Iteration
+- Simplified Newton, why does it work?
+
+### Termination
+Usually standard correction based termination, but we can try to get rid of the last needles step.
+-> simplified termination
+
+
+-> very good question: (Q8.7.1.9.B)
 
 \end{comment}

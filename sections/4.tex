@@ -58,11 +58,13 @@ $$\MF_{n}^{-1}=\frac{1}{n} \MF_{n}^{\Hm}=\frac{1}{n} \overline{\MF}_{n}$$
 
 \sep
 \Method[Frequency Filtering]
-The columns of $\MF_n$ are trigonometric basis vectors, where 
+The columns $\vv_k$ of $\MF_n$ are trigonometric basis vectors, where 
 $$\vv_k = \left[\cos \left(\tcg{j\frac{2 \pi}{n}}\cdot \tcp{k}\right)+\boldsymbol{\imath} \sin \left(\frac{2 \pi j k}{n}\right)\right]_{j=0}^{n-1}$$
 $\tcg{k}$ is the 'frequency' and $\tcp{j2\pi/n}$ is  the sample point.
 Hence the $\mathrm{DFT}_{n}$ is a basis transformation $$B_E \leftrightarrow B_{trig}$$
 Denoising and low/high filters can be implemented by manipulating the signal in the frequency domain.
+Given the $n$ coeffiecient $c_j$ we can analyse the strength of frequencies by plotting $\abs{c_j}^2, 0\leq j\leq n/2$, since $\vv_k = \vv_{n-k}, k=0\dots n-1$.
+
 \sep
 
 \Lemma[Diagonalizing circulant matrices] \\
